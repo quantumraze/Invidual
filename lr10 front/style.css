@@ -1,0 +1,185 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    background: radial-gradient(circle, #284b36, #101c15);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 30px;
+
+    background: #1c3023;
+    border: 3px solid gold;
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 0 30px #a88628;
+}
+
+h1 {
+    color: gold;
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #cccccc;
+    font-size: 18px;
+}
+
+#playerName {
+    font-size: 26px;
+    overflow-wrap: anywhere;
+}
+
+#attempt {
+    font-size: 20px;
+    color: gold;
+}
+
+.slot-machine {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 6px;
+
+    width: 100%;
+    max-width: 360px;
+
+    margin: 25px auto;
+
+    padding: 8px;
+
+    background: #101010;
+    border: 5px solid gold;
+    border-radius: 12px;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+
+    background: #d9d1f0;
+
+    border: 2px solid #634c8a;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.cell img {
+    width: 85%;
+    height: 85%;
+
+    object-fit: contain;
+}
+
+.cell.winner {
+    background: #fff1a1;
+    border: 3px solid #00d24a;
+    box-shadow: 0 0 15px gold;
+}
+
+button {
+    padding: 14px 30px;
+    margin: 10px;
+
+    background: #00e500;
+    color: black;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 19px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #75ff75;
+    transform: scale(1.05);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#restart {
+    background: gold;
+}
+
+#restart:hover {
+    background: orange;
+}
+
+#result {
+    color: gold;
+    min-height: 30px;
+    font-size: 20px;
+}
+
+.spinning img {
+    animation: spin 0.15s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(-15px);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(15px);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .slot-machine {
+        max-width: 290px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    #result {
+        font-size: 17px;
+    }
+}

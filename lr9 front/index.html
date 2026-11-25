@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра 21 — Казино</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎰%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 ГРА 21</h1>
+        <p class="subtitle">Користувач проти комп'ютера</p>
+
+        <h3 id="round">Спроба 1 з 3</h3>
+
+        <div class="game">
+            <div class="player">
+                <h2 id="playerName">Гравець</h2>
+                <p>Очки: <span id="userScore">0</span> / 21</p>
+
+                <img class="avatar" src="user.jpg" alt="Фото користувача">
+
+                <h3>Ваші карти:</h3>
+                <div class="cards-container" id="userCards"></div>
+
+                <p class="chance">
+                    Шанс перебору:
+                    <span id="userChance">0%</span>
+                </p>
+            </div>
+
+            <div class="player">
+                <h2>Computer</h2>
+                <p>Очки: <span id="computerScore">0</span> / 21</p>
+
+                <img class="avatar" src="computer.jpg" alt="Фото комп'ютера">
+
+                <h3>Карти комп'ютера:</h3>
+                <div class="cards-container" id="computerCards"></div>
+
+                <p class="chance">
+                    Шанс перебору:
+                    <span id="computerChance">0%</span>
+                </p>
+            </div>
+        </div>
+
+        <button id="generate">🎲 Generate</button>
+        <button id="restart">Нова гра</button>
+
+        <h3 id="result">Натисніть Generate</h3>
+    </div>
+</body>
+</html>
