@@ -1,0 +1,412 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #101010;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.navbar {
+    padding: 18px 0;
+    border-bottom: 2px solid #ffd700;
+}
+
+.navbar-brand {
+    color: #ffd700 !important;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 15px;
+
+    background: radial-gradient(
+        ellipse at center,
+        #403516,
+        #101010
+    );
+
+    border-bottom: 1px solid #66551c;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 8vw, 75px);
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #ffd700;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #cccccc;
+}
+
+#welcome {
+    color: #ffd700;
+    margin: 20px 0;
+}
+
+.section-title {
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 30px;
+}
+
+#search {
+    max-width: 450px;
+    margin: 0 auto 35px;
+    padding: 13px;
+
+    background: #222222;
+    color: white;
+    border: 1px solid #777777;
+}
+
+#search::placeholder {
+    color: #aaaaaa;
+}
+
+#search:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px #ffd70044;
+}
+
+#noResults {
+    display: none;
+    color: #ff7777;
+    text-align: center;
+}
+
+.game-card {
+    height: 100%;
+    padding: 25px;
+
+    background: #202020;
+    border: 1px solid #444444;
+    border-radius: 18px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-7px);
+    border-color: #ffd700;
+    box-shadow: 0 0 25px #ffd70033;
+}
+
+.game-icon {
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.game-card span {
+    color: #ffd700;
+    font-size: 13px;
+}
+
+.game-card h3 {
+    margin: 15px 0;
+    font-size: 22px;
+    flex-grow: 1;
+}
+
+.game-card .btn {
+    margin-top: 15px;
+    padding: 12px;
+    font-weight: bold;
+}
+
+#saperGame {
+    display: block;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #66551c;
+}
+
+.saper-container {
+    width: 100%;
+    max-width: 650px;
+
+    margin: 0 auto;
+    padding: 25px;
+
+    background: #1b1b1b;
+    border: 2px solid #ffd700;
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 0 25px #ffd70022;
+}
+
+.saper-container h1 {
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.statistics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    margin: 20px 0;
+}
+
+.stat {
+    background: #303030;
+    padding: 12px 5px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.stat span {
+    color: #bbbbbb;
+    font-size: 14px;
+}
+
+.stat strong {
+    color: #ffd700;
+    font-size: 23px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 3px;
+
+    width: 100%;
+    max-width: 480px;
+
+    margin: 20px auto;
+    padding: 5px;
+
+    background: #080808;
+    border: 3px solid #ffd700;
+    border-radius: 10px;
+}
+
+.cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+    padding: 0;
+
+    background: linear-gradient(
+        135deg,
+        #666666,
+        #353535
+    );
+
+    border: 1px solid #777777;
+    border-radius: 4px;
+
+    color: white;
+    font-size: clamp(12px, 4vw, 23px);
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.cell:hover:not(.revealed) {
+    background: #888888;
+}
+
+.cell.revealed {
+    background: #cccccc;
+    border-color: #999999;
+    cursor: default;
+}
+
+.cell.flagged {
+    background: #75611b;
+}
+
+.cell.mine {
+    background: #e13b3b;
+}
+
+.cell.mine img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.number-1 { color: blue; }
+.number-2 { color: green; }
+.number-3 { color: red; }
+.number-4 { color: purple; }
+.number-5 { color: brown; }
+.number-6 { color: teal; }
+.number-7 { color: black; }
+.number-8 { color: #555555; }
+
+#message {
+    color: #ffd700;
+    min-height: 28px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.instructions {
+    color: #aaaaaa;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.instructions p {
+    margin: 5px;
+}
+
+#screamer {
+    display: none;
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: black;
+    z-index: 99999;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#screamer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#countdown {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 10px 25px;
+
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#closeScreamer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    padding: 12px 18px;
+
+    background: #222222;
+    color: white;
+
+    border: 1px solid white;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+/* Нижня частина сайту */
+
+footer {
+    padding: 25px;
+    text-align: center;
+
+    background: black;
+    border-top: 1px solid #444444;
+
+    color: #aaaaaa;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* Адаптивність */
+
+@media (max-width: 576px) {
+
+    .hero {
+        padding: 35px 10px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .game-icon {
+        font-size: 50px;
+    }
+
+    .game-card {
+        padding: 20px;
+    }
+
+    #saperGame {
+        margin-top: 35px;
+        padding-top: 25px;
+    }
+
+    .saper-container {
+        padding: 12px;
+    }
+
+    #board {
+        gap: 2px;
+        padding: 3px;
+    }
+
+    .stat strong {
+        font-size: 17px;
+    }
+
+    .stat span {
+        font-size: 12px;
+    }
+
+    #message {
+        font-size: 15px;
+    }
+
+    .navbar-brand {
+        font-size: 18px;
+    }
+}
